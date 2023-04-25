@@ -314,6 +314,25 @@ public class GestionContenedores extends JFrame {
 
         });
 
+        BotonExamen.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int numhub=0;
+                double peso=0;
+                if(Hub1.isSelected()){
+                    numhub=0;
+                }else if(hub2.isSelected()){
+                    numhub=1;
+                }else{ numhub=2;
+                }
+                try {
+                    peso = Double.parseDouble(txtNpeso.getText());
+                }catch(NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "El dato no es un entero o doble, vuelve a teclearlo");
+                }
+                VentanaExamen ventanaExamen= new VentanaExamen(p.MetodoExamen(peso,numhub));
+            }
+        });
     }
 
 
@@ -353,6 +372,7 @@ public class GestionContenedores extends JFrame {
     private JRadioButton Hub1;
     private JRadioButton hub2;
     private JRadioButton Hub3;
+    private JButton BotonExamen;
 
     Puerto p;
 
